@@ -24,7 +24,7 @@ class RatingBarWidget extends StatelessWidget {
     return Container(
       color: maskColor,
       padding: EdgeInsets.all(height * 0.025),
-      child: Container(
+      child: SizedBox(
         height: height,
         width: width,
         child: Stack(
@@ -47,7 +47,7 @@ class RatingBarWidget extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.center,
-              child: Container(
+              child: SizedBox(
                 height: height,
                 width: width,
                 child: Row(
@@ -75,7 +75,7 @@ class RatingBarWidget extends StatelessWidget {
           BlendMode.srcOut,
         ),
         child: Container(
-          padding: EdgeInsets.all(1),
+          padding: const EdgeInsets.all(1),
           width: height,
           height: height,
           decoration: BoxDecoration(

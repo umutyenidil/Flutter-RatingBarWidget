@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:rating_bar_widget/rating_bar_widget.dart';
 
-void main() => runApp(Home());
+void main() => runApp(const Home());
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Rating Bar Widget',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
