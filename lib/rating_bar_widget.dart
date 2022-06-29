@@ -72,7 +72,6 @@ class RatingBarWidget extends StatelessWidget {
         ),
         child: SvgPicture.asset(
           'assets/icons/star.svg',
-          color: Colors.blue,
         ),
       ),
     );
