@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: RatingBarWidget(),
+          child: RatingBarWidget(height: 50),
         ),
       ),
     );
