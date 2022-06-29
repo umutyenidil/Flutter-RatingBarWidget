@@ -14,8 +14,9 @@ class Home extends StatelessWidget {
       home: Scaffold(
         body: Center(
           child: RatingBarWidget(
+            svgRatingIcon: 'assets/icons/star.svg',
             rating: 4.5,
-            height:50,
+            height: 50,
             backgroundColor1: Colors.green,
             backgroundColor2: Colors.orange,
             maskColor: Colors.blue,

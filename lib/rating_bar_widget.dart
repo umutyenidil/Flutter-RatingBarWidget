@@ -9,12 +9,14 @@ class RatingBarWidget extends StatelessWidget {
     this.backgroundColor1 = Colors.grey,
     this.backgroundColor2 = Colors.yellow,
     this.maskColor = Colors.white,
+    required this.svgRatingIcon,
   }) : super(key: key);
   final double height;
   final double rating;
   final Color backgroundColor1;
   final Color backgroundColor2;
   final Color maskColor;
+  final String svgRatingIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +83,7 @@ class RatingBarWidget extends StatelessWidget {
             backgroundBlendMode: BlendMode.srcIn,
           ),
           child: SvgPicture.asset(
-            'assets/icons/smile.svg',
+            svgRatingIcon,
           ),
         ),
       ),
