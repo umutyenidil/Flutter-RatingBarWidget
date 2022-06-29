@@ -13,7 +13,13 @@ class Home extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Center(
-          child: RatingBarWidget(height: 50),
+          child: RatingBarWidget(
+            rating: 4.5,
+            height:50,
+            backgroundColor1: Colors.green,
+            backgroundColor2: Colors.orange,
+            maskColor: Colors.blue,
+          ),
         ),
       ),
     );

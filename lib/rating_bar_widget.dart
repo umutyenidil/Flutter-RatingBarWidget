@@ -5,73 +5,84 @@ class RatingBarWidget extends StatelessWidget {
   const RatingBarWidget({
     Key? key,
     required this.height,
+    required this.rating,
+    this.backgroundColor1 = Colors.grey,
+    this.backgroundColor2 = Colors.yellow,
+    this.maskColor = Colors.white,
   }) : super(key: key);
-
   final double height;
+  final double rating;
+  final Color backgroundColor1;
+  final Color backgroundColor2;
+  final Color maskColor;
 
   @override
   Widget build(BuildContext context) {
     final double width = height * 5;
     return Container(
-      height: height + 16,
-      width: width + 16,
-      color: Colors.red,
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              height: height,
-              width: width,
-              color: Colors.grey,
-            ),
-          ),
-          Positioned(
-            top: 8,
-            bottom: 8,
-            left: 8,
-            child: Container(
-              height: height,
-              width: width * 3 / 5,
-              color: Colors.yellow,
-            ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Container(
-              height: height,
-              width: width,
-              child: Row(
-                children: [
-                  buildRatingIcon(),
-                  buildRatingIcon(),
-                  buildRatingIcon(),
-                  buildRatingIcon(),
-                  buildRatingIcon(),
-                ],
+      color: maskColor,
+      padding: EdgeInsets.all(height * 0.025),
+      child: Container(
+        height: height,
+        width: width,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                height: height,
+                width: width,
+                color: backgroundColor1,
               ),
             ),
-          ),
-        ],
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                height: height,
+                width: width * rating / 5,
+                color: backgroundColor2,
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Container(
+                height: height,
+                width: width,
+                child: Row(
+                  children: [
+                    buildRatingIcon(),
+                    buildRatingIcon(),
+                    buildRatingIcon(),
+                    buildRatingIcon(),
+                    buildRatingIcon(),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  ColorFiltered buildRatingIcon() {
-    return ColorFiltered(
-      colorFilter: ColorFilter.mode(
-        Colors.red,
-        BlendMode.srcOut,
-      ),
-      child: Container(
-        width: height,
-        height: height,
-        decoration: BoxDecoration(
-          color: Colors.red,
-          backgroundBlendMode: BlendMode.srcIn,
+  Widget buildRatingIcon() {
+    return Expanded(
+      child: ColorFiltered(
+        colorFilter: ColorFilter.mode(
+          maskColor,
+          BlendMode.srcOut,
         ),
-        child: SvgPicture.asset(
-          'assets/icons/star.svg',
+        child: Container(
+          padding: EdgeInsets.all(1),
+          width: height,
+          height: height,
+          decoration: BoxDecoration(
+            color: maskColor,
+            backgroundBlendMode: BlendMode.srcIn,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/smile.svg',
+          ),
         ),
       ),
     );
